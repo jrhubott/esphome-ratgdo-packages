@@ -1,6 +1,7 @@
 substitutions:
   id_prefix: ratgdov25i
   name: ratgdov25i
+  friendly_name: ratgdov2.5i
 
   status_door_pin: D0
   uart_tx_pin: D1
@@ -27,6 +28,7 @@ dashboard_import:
 
 esphome:
   name: ${name}
+  friendly_name: ${friendly_name}
   name_add_mac_suffix: false
 
   
