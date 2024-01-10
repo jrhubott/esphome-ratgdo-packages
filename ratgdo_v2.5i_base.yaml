@@ -2,17 +2,15 @@ substitutions:
   id_prefix: ratgdov25i
   name: ratgdov25i-a855df
   friendly_name: ratgdov2.5i a855df
+  status_door_pin: D0
   uart_tx_pin: D1
   uart_rx_pin: D2
-  input_obst_pin: D7
-  status_door_pin: D0
-  status_obstruction_pin: D8
-  dry_contact_open_pin: D5
-  dry_contact_close_pin: D6
   dry_contact_light_pin: D3
   led_pin: D4
-  
-
+  dry_contact_open_pin: D5
+  dry_contact_close_pin: D6
+  input_obst_pin: D7
+  status_obstruction_pin: D8
 
 external_components:
   - source:
@@ -24,10 +22,8 @@ external_components:
 preferences:
   flash_write_interval: 5s
 
-
-#dashboard_import:
-#  package_import_url: github://ratgdo/esphome-ratgdo/v25iboard_secplusv1.yaml@sec_plus_v1
-
+dashboard_import:
+  package_import_url: github://jrhubott/esphome-ratgdo-packages/ratgdo_v2.5i_base.yaml
 
 esphome:
   name: ${name}
