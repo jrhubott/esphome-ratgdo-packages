@@ -26,6 +26,9 @@ dashboard_import:
   package_import_url: github://jrhubott/esphome-ratgdo-packages/ratgdo_v2.5i_piezo_speaker.yaml
 
 esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+
   on_boot:
     priority: -100
     # ...
