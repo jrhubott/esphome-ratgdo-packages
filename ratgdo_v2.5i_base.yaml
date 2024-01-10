@@ -87,17 +87,6 @@ lock:
     ratgdo_id: ${id_prefix}
     name: "Lock remotes"
 
-switch:
-  - platform: gpio
-    id: "${id_prefix}_led"
-    pin:
-      number: ${led_pin}  # D0 output door status, HIGH for open, LOW for closed
-      inverted: true
-      mode:
-        output: true
-    name: "LED"
-    entity_category: diagnostic
-
 #  - platform: gpio
 #    id: "${id_prefix}_status_door"
 #    internal: true
@@ -250,6 +239,16 @@ light:
     id: ${id_prefix}_light
     name: "Light"
     ratgdo_id: ${id_prefix}
+
+  - platform: status_led
+    id: "${id_prefix}_led"
+    pin:
+      number: ${led_pin}  # D0 output door status, HIGH for open, LOW for closed
+      inverted: true
+      mode:
+        output: true
+    name: "Status LED"
+    entity_category: diagnostic
 
 button:
   - platform: restart
