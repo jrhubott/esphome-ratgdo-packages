@@ -11,21 +11,7 @@ substitutions:
   dry_contact_close_pin: D6
   dry_contact_light_pin: D3
   led_pin: D4
-  rtttl_pin: ${status_obstruction_pin}
-
-  boot_rtttl: "The Simpsons:d=4,o=5,b=160:c.6,e6,f#6,8a6,g.6,e6,c6,8a,8f#,8f#,8f#,2g,8p,8p,8f#,8f#,8f#,8g,a#.,8c6,8c6,8c6,c6"
   
-  open_alarm: "true"
-  open_alarm_rtttl: "two_short:d=4,o=6,b=100:c,p,c"
-  # open_alarm_rtttl: 'long:d=1,o=6,b=100:c'
-  # open_alarm_rtttl: 'open_pulse:d=16,o=5,b=100:c,c6,p.,c,c6,p.,c,c6,p.'
-  # open_alarm_rtttl: 'open_slide:d=128,o=5,b=100:c,d,e,g,4c6.,4p,c,d,e,g,4c6.,4p'
-  
-  close_alarm: "true"
-  #close_alarm_rtttl: "two_short:d=4,o=5,b=100:c,p,c"
-  close_alarm_rtttl: 'long:d=1,o=5,b=100:c'
-  # close_alarm_rtttl: 'close_pulse:d=16,o=5,b=100:c6,c,p.,c6,c,p.,c6,c,p.'
-  # close_alarm_rtttl: 'close_slide:d=128,o=5,b=100:c6,g,e,d,4c.,4p,c6,g,e,d,4c.,4p'
 
 
 external_components:
@@ -48,15 +34,7 @@ esphome:
   name_add_mac_suffix: false
   friendly_name: ${friendly_name}
 
-  on_boot:
-    priority: -100
-    # ...
-    then:
-      - rtttl.play:
-          rtttl: $boot_rtttl
-#      - wait_until:
-#          not: rtttl.is_playing
-
+  
 api:
   id: api_server
 
@@ -76,15 +54,7 @@ improv_serial:
 
 logger:
 
-output:
-  - platform: esp8266_pwm
-    pin: ${rtttl_pin}
-    id: rtttl_out
 
-rtttl:
-  output: rtttl_out
-  on_finished_playback:
-    - logger.log: 'rttl playback ended!'
 
 ratgdo:
   id: ${id_prefix}
@@ -274,62 +244,7 @@ cover:
 #    on_open:
 #      - switch.turn_on: ${id_prefix}_status_door
 
-  - platform: template
-    id: garage_door_cover
-    name: "Door"
-    device_class: garage
-    has_position: true
-    lambda: |-
-      return id(${id_prefix}_garage_door).position;
-    position_action:
-      - if:
-          condition:
-            lambda: "return id(${id_prefix}_garage_door).position > pos;"
-          then:
-            - if:
-                condition:
-                  lambda: "return $close_alarm;"
-                then:
-                  - rtttl.play:
-                      rtttl: $close_alarm_rtttl
-                  - wait_until:
-                      not: rtttl.is_playing
-            - lambda: |-
-                auto call = id(${id_prefix}_garage_door).make_call();
-                // set attributes
-                call.set_position(pos);
-                call.perform();
-                
-    close_action:
-      - if:
-          condition:
-            lambda: "return id(${id_prefix}_garage_door).position > COVER_CLOSED;"
-          then:
-            - if:
-                condition:
-                  lambda: "return $close_alarm;"
-                then:
-                  - rtttl.play:
-                      rtttl: $close_alarm_rtttl
-                  - wait_until:
-                      not: rtttl.is_playing
-            - cover.close: ${id_prefix}_garage_door
-    open_action:
-      - if:
-          condition:
-            lambda: "return id(${id_prefix}_garage_door).position < COVER_OPEN;"
-          then:
-            - if:
-                condition:
-                  lambda: "return $open_alarm;"
-                then:
-                  - rtttl.play:
-                      rtttl: $open_alarm_rtttl
-                  - wait_until:
-                      not: rtttl.is_playing
-            - cover.open: ${id_prefix}_garage_door
-    stop_action:
-      - cover.stop: ${id_prefix}_garage_door
+  
 light:
   - platform: ratgdo
     id: ${id_prefix}_light
