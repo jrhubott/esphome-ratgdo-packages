@@ -22,6 +22,9 @@ packages:
     files: ratgdo_v2.5i_base.yaml
     refresh: 1s # optional
 
+dashboard_import:
+  package_import_url: github://jrhubott/esphome-ratgdo-packages/ratgdo_v2.5i_piezo_speaker.yaml
+
 esphome:
   on_boot:
     priority: -100
