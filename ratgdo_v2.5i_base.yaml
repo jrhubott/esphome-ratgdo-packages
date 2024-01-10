@@ -23,9 +23,6 @@ external_components:
 preferences:
   flash_write_interval: 5s
 
-dashboard_import:
-  package_import_url: github://jrhubott/esphome-ratgdo-packages/ratgdo_v2.5i_base.yaml
-
 esphome:
   name: ${name}
   friendly_name: ${friendly_name}
