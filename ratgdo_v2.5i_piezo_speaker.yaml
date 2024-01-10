@@ -1,0 +1,6 @@
+packages:
+  remote_package:
+    url: https://github.com/jrhubott/esphome-ratgdo-packages
+    ref: main # optional
+    files: ratgdo_v2.5i_base.yaml
+    refresh: 1h # optional
