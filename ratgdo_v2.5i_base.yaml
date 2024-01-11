@@ -221,7 +221,7 @@ cover:
     device_class: garage
     name: "Internal Door"
     ratgdo_id: ${id_prefix}
-    internal: false
+    internal: true
 #    on_closed:
 #      - switch.turn_off: ${id_prefix}_status_door
 #    on_open:
