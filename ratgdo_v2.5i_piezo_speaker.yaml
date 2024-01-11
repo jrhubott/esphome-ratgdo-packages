@@ -89,7 +89,6 @@ cover:
                       rtttl: $close_alarm_rtttl
                   - wait_until:
                       not: rtttl.is_playing
-            - delay: 1s
             - cover.close: ${id_prefix}_garage_door
     open_action:
       - if:
@@ -104,7 +103,6 @@ cover:
                       rtttl: $open_alarm_rtttl
                   - wait_until:
                       not: rtttl.is_playing
-            - delay: 1s
             - cover.open: ${id_prefix}_garage_door
     stop_action:
       - cover.stop: ${id_prefix}_garage_door
