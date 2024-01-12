@@ -279,10 +279,4 @@ button:
         lambda: !lambda |-
           id($id_prefix).sync();
 
-  - platform: template
-    id: ${id_prefix}_toggle_door
-    name: "Toggle door"
-    on_press:
-      then:
-        lambda: !lambda |-
-          id($id_prefix).toggle_door();
+
