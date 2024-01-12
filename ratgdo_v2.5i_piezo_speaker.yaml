@@ -105,5 +105,4 @@ cover:
             - cover.open: ${id_prefix}_garage_door
     stop_action:
       - cover.stop: ${id_prefix}_garage_door
-    toggle_action:
-      - cover.toggle: ${id_prefix}_garage_door
+
