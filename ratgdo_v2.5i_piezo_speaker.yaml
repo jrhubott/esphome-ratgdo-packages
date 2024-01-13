@@ -54,6 +54,9 @@ cover:
     name: "Door"
     device_class: garage
     has_position: true
+    optimistic: false
+    assumed_state: false
+    
     lambda: |-
       return id(${id_prefix}_garage_door).position;
     position_action:
