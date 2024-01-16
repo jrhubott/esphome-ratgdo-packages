@@ -34,7 +34,7 @@ esphome:
     # ...
     then:
       - rtttl.play:
-          rtttl: 'siren:d=8,o=5,b=100:d,e,d,e,d,e,d,e'
+          rtttl: ${boot_rtttl}
       - wait_until:
           not: rtttl.is_playing
 
@@ -42,7 +42,7 @@ output:
   - platform: esp8266_pwm
     pin: ${rtttl_pin}
     id: rtttl_out
-    frequency: 2000 Hz
+
 
 rtttl:
   output: rtttl_out
