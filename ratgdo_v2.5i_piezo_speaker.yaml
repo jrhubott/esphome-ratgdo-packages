@@ -35,8 +35,8 @@ esphome:
     then:
       - rtttl.play:
           rtttl: ${boot_rtttl}
-      - wait_until:
-          not: rtttl.is_playing
+#      - wait_until:
+#          not: rtttl.is_playing
 
 output:
   - platform: esp8266_pwm
