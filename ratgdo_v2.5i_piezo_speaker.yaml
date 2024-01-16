@@ -43,7 +43,7 @@ output:
     pin: 
       number: ${rtttl_pin}
     id: rtttl_out
-    inverted: true
+    frequency: 2000 Hz
 
 rtttl:
   output: rtttl_out
