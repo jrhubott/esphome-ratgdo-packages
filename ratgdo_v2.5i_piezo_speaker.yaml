@@ -40,8 +40,10 @@ esphome:
 
 output:
   - platform: esp8266_pwm
-    pin: ${rtttl_pin}
+    pin: 
+      number: ${rtttl_pin}
     id: rtttl_out
+    inverted: true
 
 rtttl:
   output: rtttl_out
