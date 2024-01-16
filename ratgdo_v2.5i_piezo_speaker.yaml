@@ -34,7 +34,7 @@ esphome:
     # ...
     then:
       - rtttl.play:
-          rtttl: $open_alarm
+          rtttl: 'siren:d=8,o=5,b=100:d,e,d,e,d,e,d,e'
       - wait_until:
           not: rtttl.is_playing
 
