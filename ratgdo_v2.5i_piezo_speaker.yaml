@@ -40,8 +40,7 @@ esphome:
 
 output:
   - platform: esp8266_pwm
-    pin: 
-      number: ${rtttl_pin}
+    pin: ${rtttl_pin}
     id: rtttl_out
     frequency: 2000 Hz
 
