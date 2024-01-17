@@ -41,12 +41,7 @@ esphome:
 output:
   - platform: esp8266_pwm
     id: rtttl_out
-    mode:
-      pin: ${rtttl_pin}
-      output: true
-      input: false
-      open_drain: false
-
+    pin: ${rtttl_pin}
 
 rtttl:
   output: rtttl_out
