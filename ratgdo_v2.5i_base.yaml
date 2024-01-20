@@ -204,9 +204,9 @@ cover:
   - platform: ratgdo
     id: ${id_prefix}_garage_door
     device_class: garage
-    name: "Internal Door"
+    name: "Door"
     ratgdo_id: ${id_prefix}
-    internal: true
+#    internal: true
 #    on_closed:
 #      - switch.turn_off: ${id_prefix}_status_door
 #    on_open:
