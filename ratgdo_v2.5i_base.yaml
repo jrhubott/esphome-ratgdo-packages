@@ -16,8 +16,8 @@ substitutions:
 external_components:
   - source:
       type: git
-#      url: https://github.com/jrhubott/esphome-ratgdo
-      url: https://github.com/ratgdo/esphome-ratgdo
+      url: https://github.com/jrhubott/esphome-ratgdo
+#      url: https://github.com/ratgdo/esphome-ratgdo
       ref: main
 #     ref: testing
 #      ref: sec_plus_v1_test
