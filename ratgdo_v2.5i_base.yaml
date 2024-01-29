@@ -18,8 +18,7 @@ external_components:
       type: git
       url: https://github.com/jrhubott/esphome-ratgdo
 #      url: https://github.com/ratgdo/esphome-ratgdo
-      ref: latest
-#      ref: v0.0.2
+      ref: v0.0.3
 #      ref: main
 #     ref: testing
 #      ref: sec_plus_v1_test
