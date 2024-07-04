@@ -49,6 +49,7 @@ time:
     id: homeassistant_time
 
 ota:
+  platform: esphome
 
 improv_serial:
 
